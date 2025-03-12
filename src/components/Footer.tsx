@@ -2,7 +2,7 @@
 import React from "react";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="w-full py-12 bg-primary text-primary-foreground">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -4,11 +4,15 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Sun, Moon } from "lucide-react";
 
-const Layout = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     if (savedTheme) {

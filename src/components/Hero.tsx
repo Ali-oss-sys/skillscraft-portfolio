@@ -2,11 +2,11 @@
 import React, { useEffect, useRef } from "react";
 import { ArrowRight, Code, Smartphone, ShoppingBag } from "lucide-react";
 
-const Hero = () => {
-  const heroRef = useRef(null);
+const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
       
       const { clientX, clientY } = e;
@@ -16,10 +16,10 @@ const Hero = () => {
       
       const icons = heroRef.current.querySelectorAll(".floating-icon");
       icons.forEach((icon) => {
-        const speed = parseFloat((icon).dataset.speed || "5");
+        const speed = parseFloat((icon as HTMLElement).dataset.speed || "5");
         const offsetX = (x - rect.width / 2) / speed;
         const offsetY = (y - rect.height / 2) / speed;
-        icon.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        (icon as HTMLElement).style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
     };
     

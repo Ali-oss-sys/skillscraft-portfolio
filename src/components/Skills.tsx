@@ -15,7 +15,13 @@ import {
   TabletSmartphone,
 } from "lucide-react";
 
-const SkillCard = ({ icon, title, description, skills, delay }) => {
+const SkillCard: React.FC<{
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  skills: string[];
+  delay: number;
+}> = ({ icon, title, description, skills, delay }) => {
   return (
     <div
       className="glass dark:glass-dark p-6 rounded-xl card-hover animate-fade-in-up"
@@ -38,7 +44,7 @@ const SkillCard = ({ icon, title, description, skills, delay }) => {
   );
 };
 
-const Skills = () => {
+const Skills: React.FC = () => {
   const categories = [
     {
       icon: <Globe className="w-6 h-6" />,

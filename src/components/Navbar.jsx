@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -108,6 +109,14 @@ const Navbar = () => {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        <button 
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-4 right-4 p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
+          aria-label="Close menu"
+        >
+          <X className="w-6 h-6 text-accent" />
+        </button>
+        
         <nav className="flex flex-col items-center space-y-6 p-8">
           {navLinks.map((link) => (
             <a

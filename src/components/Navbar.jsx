@@ -1,17 +1,22 @@
-
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(() => {
+    const saved = localStorage.getItem("mobileMenuOpen");
+    return saved ? JSON.parse(saved) : false;
+  });
   const [activeSection, setActiveSection] = useState("home");
+  
+  useEffect(() => {
+    localStorage.setItem("mobileMenuOpen", JSON.stringify(isMobileMenuOpen));
+  }, [isMobileMenuOpen]);
   
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Update active section based on scroll position
       const sections = ["home", "about", "skills", "projects", "team", "contact"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -98,7 +103,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       <div
         className={`md:hidden fixed inset-0 z-40 glass dark:glass-dark pt-20 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"

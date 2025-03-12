@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
     { href: "#contact", label: "Contact" },
   ];
   
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       window.scrollTo({

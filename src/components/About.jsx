@@ -2,7 +2,7 @@
 import React from "react";
 import { Calendar, MapPin, Briefcase, Award } from "lucide-react";
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
       <div className="container section-container">

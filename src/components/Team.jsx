@@ -2,22 +2,8 @@
 import React from "react";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  social: {
-    github?: string;
-    linkedin?: string;
-    twitter?: string;
-    email?: string;
-  };
-}
-
-const Team: React.FC = () => {
-  const teamMembers: TeamMember[] = [
+const Team = () => {
+  const teamMembers = [
     {
       id: 1,
       name: "Jane Doe",
